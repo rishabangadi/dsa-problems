@@ -15,10 +15,7 @@ class Solution {
         for (int i = 0; i < k - 1; i++)
             beg = beg.next;
 
-        ListNode slow = head, fast = head;
-        for (int i = 0; i < k; i++) {
-            fast = fast.next;
-        }
+        ListNode slow = head, fast = beg.next;
         while (fast != null) {
             slow = slow.next;
             fast = fast.next;
