@@ -7,7 +7,7 @@ public:
             while (!queue.empty() && nums[i] >= nums[queue.back()])
                 queue.pop_back();
             queue.push_back(i);
-            while (queue.front() <= i - k)
+            if (queue.front() <= i - k)
                 queue.pop_front();
             if (i >= k - 1)
                 ans.push_back(nums[queue.front()]);
