@@ -14,27 +14,19 @@
  * }
  */
 class Solution {
-    private int diameter;
+    int ans = 0;
 
     public int diameterOfBinaryTree(TreeNode root) {
-        diameter = 0;
-        longestPath(root);
-        return diameter;
+        int h = height(root);
+        return ans;
     }
 
-    private int longestPath(TreeNode node) {
+    int height(TreeNode node) {
         if (node == null)
             return 0;
-        // recursively find the longest path in
-        // both left child and right child
-        int leftPath = longestPath(node.left);
-        int rightPath = longestPath(node.right);
-
-        // update the diameter if left_path plus right_path is larger
-        diameter = Math.max(diameter, leftPath + rightPath);
-
-        // return the longest one between left_path and right_path;
-        // remember to add 1 for the path connecting the node and its parent
-        return Math.max(leftPath, rightPath) + 1;
+        int leftHeight = height(node.left);
+        int rightHeight = height(node.right);
+        ans = Math.max(ans, leftHeight + rightHeight);
+        return 1 + Math.max(leftHeight, rightHeight);
     }
 }
