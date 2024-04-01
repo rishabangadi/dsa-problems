@@ -4,8 +4,6 @@ public:
         vector<string> words;
         int left = 0;
         int n = s.length();
-        while(left<n && s[left]==' ')
-            left++;
         int right = n-1;
         while(right>=left && s[right]==' ')
             right--;
@@ -20,6 +18,5 @@ public:
             }
         }
         return count;
-
     }
 };
